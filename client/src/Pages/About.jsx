@@ -1,9 +1,10 @@
 import React from 'react'
+import Aboutsection from '../Components/Aboutsection'
 
 function About() {
   return (
     <div>
-      this is about page
+      <Aboutsection/>
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
+import Servicesection from '../Components/Servicesection'
 
 function Services() {
   return (
     <div>
-      this showing all the services
+      <Servicesection/>
     </div>
   )
 }

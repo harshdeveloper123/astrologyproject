@@ -1,9 +1,10 @@
 import React from 'react'
+import Missedcallform from '../Components/Missedcallform'
 
 function Contact() {
   return (
     <div>
-      This is contact page
+      <Missedcallform/>
     </div>
   )
 }

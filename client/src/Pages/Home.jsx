@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Servicesection from '../Components/Servicesection';
+import Aboutsection from '../Components/Aboutsection';
+import Contactform from '../Components/contactform';
 
 function Home() {
   const subheadings = [
-    "प्रेम और विवाह की सही दिशा",
+    "राशियों और ग्रहों की भाषा से पाएं जीवन के हर मोड़ पर सही दिशा",
     "Astrology for every step of your journey",
     "व्यवसाय में सफलता के उपाय",
     "Success strategies for your career",
@@ -46,7 +49,7 @@ function Home() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="absolute inset-0 text-yellow-300 blur-sm leading-tight text-3xl sm:text-6xl font-bold">
+          <h1 className="absolute inset-0 text-yellow-200 blur-sm leading-tight text-3xl sm:text-6xl font-bold">
             शास्त्रों की वाणी और ग्रहों के ज्ञान से जीवन को नई दिशा दें।
           </h1>
           <h1 className="relative leading-relaxed text-3xl sm:text-6xl font-bold">
@@ -89,7 +92,9 @@ function Home() {
        
       </div>
        <div className="contactbtn text-center"><button className='bg-yellow-500/40 p-5 rounded-full hover:bg-orange-600 font-bold'>Contact Us</button></div>
-      
+      <Aboutsection/>
+       <Servicesection limited={true}/>
+      <Contactform/>
       
     </>
   )
