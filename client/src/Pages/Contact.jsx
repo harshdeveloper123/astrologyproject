@@ -1,10 +1,11 @@
 import React from 'react'
-import Missedcallform from '../Components/Missedcallform'
+
+import Contactform from '../Components/contactform'
 
 function Contact() {
   return (
     <div>
-      <Missedcallform/>
+      <Contactform/>
     </div>
   )
 }

@@ -5,14 +5,16 @@ import Home from './Pages/Home';
 import About from './Pages/About'
 import Contact from './Pages/Contact';
 import Services from './Pages/Services'
-
+import Footer from './Components/Footer';
 
 
 
 function App() {
   
   return (
+    
     <>
+    
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -20,9 +22,10 @@ function App() {
         <Route path='/services' element={<Services/>}/>
         <Route path='/contact' element={<Contact/>}/>
       </Routes>
-      
-      
+      <Footer/>
+     
     </>
+     
   )
 }
 
