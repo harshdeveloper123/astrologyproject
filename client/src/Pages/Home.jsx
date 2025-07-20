@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Servicesection from '../Components/Servicesection';
 import Aboutsection from '../Components/Aboutsection';
-import Contactform from '../Components/contactform';
+import ContactForm from '../Components/ContactForm';
 
 function Home() {
   const subheadings = [
