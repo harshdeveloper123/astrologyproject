@@ -1,23 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function Contactform() {
-  const [form, setForm] = useState({ name: '', phone: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Quick Contact Form submitted:', form)
-    setForm({ name: '', phone: '', message: '' })
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert('✅ Message sent successfully!');
+        setForm({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert('❌ Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('❌ Something went wrong.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-yellow-50 p-8 md:p-16">
-      <h2 className="text-3xl sm:text-4xl font-bold text-yellow-700 text-center mb-8">Contact Us</h2>
-      <form 
-        onSubmit={handleSubmit} 
+      <h2 className="text-3xl sm:text-4xl font-bold text-yellow-700 text-center mb-8">
+        Contact Us
+      </h2>
+      <form
+        onSubmit={handleSubmit}
         className="max-w-xl mx-auto space-y-4 bg-white p-6 rounded-xl shadow-lg"
       >
         <input
@@ -25,6 +51,16 @@ function Contactform() {
           name="name"
           placeholder="Your Name"
           value={form.name}
+          onChange={handleChange}
+          required
+          className="w-full p-3 border border-yellow-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={form.email}
           onChange={handleChange}
           required
           className="w-full p-3 border border-yellow-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
@@ -50,15 +86,16 @@ function Contactform() {
           className="w-full p-3 border border-yellow-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />
 
-        <button 
-          type="submit" 
+        <button
+          type="submit"
+          disabled={loading}
           className="w-full bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition-colors duration-300"
         >
-          Send Message
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
     </div>
-  )
+  );
 }
 
-export default Contactform
+export default Contactform;
