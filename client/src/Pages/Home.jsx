@@ -66,7 +66,7 @@ function Home() {
         >
           <img
             className='w-40 sm:w-52 md:w-60 lg:w-72 rounded-lg shadow-lg'
-            src="./public/images/ownerph.jpeg"
+            src="./images/ownerph.jpeg"
             alt="AstrologerPic"
           />
         </motion.div>

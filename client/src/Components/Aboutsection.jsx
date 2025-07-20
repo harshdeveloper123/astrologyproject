@@ -6,7 +6,7 @@ function Aboutsection() {
     <div className='flex flex-col md:flex-row items-center justify-center gap-10 p-8 md:p-16 bg-yellow-50'>
       <div className='w-48 sm:w-60 md:w-72 lg:w-80'>
         <img 
-          src="./public/images/ownerph.jpeg" 
+          src="./images/ownerph.jpeg" 
           alt="Astrologer" 
           className='rounded-xl shadow-xl border-4 border-yellow-300'
         />
