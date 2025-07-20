@@ -94,7 +94,7 @@ function Home() {
        <div className="contactbtn text-center"><button className='bg-yellow-500/40 p-5 rounded-full hover:bg-orange-600 font-bold'>Contact Us</button></div>
       <Aboutsection/>
        <Servicesection limited={true}/>
-      <Contactform/>
+      <ContactForm/>
       
     </>
   )
